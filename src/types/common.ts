@@ -1,4 +1,4 @@
-export interface IDef {
+export interface IMetaSkyCondition {
   code: string;
-  meaning: string;
+  description: string;
 }
