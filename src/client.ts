@@ -1,5 +1,6 @@
 import {
   IAIREP,
+  IAVT7Metar,
   IAirSigmet,
   IAirSigmetOptions,
   IAircraftReportsOptions,
@@ -22,6 +23,7 @@ export class Client {
   private options?: IClientOptions;
   static api = {
     AW: "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
+    AVT7: "http://www.avt7.com/Home/AirportMetarInfo",
   };
 
   constructor(options?: IClientOptions) {
@@ -115,4 +117,13 @@ export class Client {
     const output = finalData instanceof Array ? finalData : [finalData];
     return this.FormatOutput(options.datasource, output);
   }
+
+  AVT7 = async (AirportCode: string): Promise<IAVT7Metar> => {
+    const res = await axios.get<IAVT7Metar>(Client.api.AVT7, {
+      params: {
+        airport4Code: AirportCode,
+      },
+    });
+    return res.data;
+  };
 }

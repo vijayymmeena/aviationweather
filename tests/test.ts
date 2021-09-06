@@ -10,3 +10,7 @@ myc
   .then((res) => {
     console.log(res[0]);
   });
+
+myc.AVT7("ZJQH").then((res) => {
+  console.log(res);
+});
