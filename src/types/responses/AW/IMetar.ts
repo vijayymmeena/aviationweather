@@ -78,11 +78,11 @@ export interface IMetar {
   /**
    * Sky condition
    */
-  sky_condition?: {
+  sky_condition: {
     /**
      * Sky coverage
      */
-    sky_cover?: "NSC" | "SKC" | "CLR" | "SKT" | "BKN" | "FEW" | "OVC" | "OVCX";
+    sky_cover: "NSC" | "SKC" | "CLR" | "SKT" | "BKN" | "FEW" | "OVC" | "OVCX";
 
     /**
      * Cloud base (ft AGL)
@@ -93,7 +93,7 @@ export interface IMetar {
      * Cloud type
      */
     cloud_type?: "CB" | "TCU" | "CU";
-  };
+  }[];
 
   /**
    * Flight category of this METAR. Values: VFR|MVFR|IFR|LIFR

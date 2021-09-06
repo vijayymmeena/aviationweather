@@ -54,9 +54,8 @@ export class Client {
     switch (type) {
       case "METARS": {
         return data.map((item) => {
-          // remove sky condition if not present
-          if (!item?.sky_condition?.length) {
-            // delete item.sky_condition;
+          if (item?.sky_condition && !(item?.sky_condition instanceof Array)) {
+            item.sky_condition = [item?.sky_condition];
           }
           return item;
         });
