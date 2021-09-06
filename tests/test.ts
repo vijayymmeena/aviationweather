@@ -3,8 +3,8 @@ import { Client } from "../src";
 const myc = new Client({ debug: true });
 myc
   .AW({
-    datasource: "METARS",
-    stationString: "KBCB",
+    datasource: "TAFS",
+    stationString: "YMML",
     hoursBeforeNow: 1,
   })
   .then((res) => {

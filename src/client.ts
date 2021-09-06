@@ -18,6 +18,7 @@ import {
 } from ".";
 import axios from "axios";
 import { parse } from "fast-xml-parser";
+import { skyConditions } from "./Identifiers";
 
 export class Client {
   private options?: IClientOptions;
@@ -28,6 +29,12 @@ export class Client {
 
   constructor(options?: IClientOptions) {
     this.options = options;
+  }
+
+  private getDef(identifier: string) {
+    const search = skyConditions.find((s) => s.code === identifier);
+    if (!search) return { code: identifier, meaning: "unknown" };
+    return search;
   }
 
   private selectField = (type: IDatasourceType) => {
@@ -53,6 +60,15 @@ export class Client {
   private FormatOutput = (type: IDatasourceType, data: any[]) => {
     switch (type) {
       case "METARS": {
+        return data.map((item) => {
+          if (item?.sky_condition && !(item?.sky_condition instanceof Array)) {
+            item.sky_condition = [item?.sky_condition];
+          }
+          return item;
+        });
+      }
+
+      case "TAFS": {
         return data.map((item) => {
           if (item?.sky_condition && !(item?.sky_condition instanceof Array)) {
             item.sky_condition = [item?.sky_condition];
