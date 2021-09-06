@@ -1,4 +1,6 @@
-export const skyConditions: { code: string; meaning: string }[] = [
+import { IDef } from ".";
+
+export const skyConditions: IDef[] = [
   { code: "BKN", meaning: "Broken cloud layer 5/8ths to 7/8ths" },
   { code: "CB", meaning: "Cumulonimbus" },
   { code: "CLR", meaning: "Sky clear at or below 12,000AGL" },

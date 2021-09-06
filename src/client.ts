@@ -6,6 +6,7 @@ import {
   IAircraftReportsOptions,
   IClientOptions,
   IDatasourceType,
+  IDef,
   IGAirMet,
   IGAirmetOptions,
   IMetar,
@@ -31,7 +32,7 @@ export class Client {
     this.options = options;
   }
 
-  private getDef(identifier: string) {
+  getDef(identifier: string): IDef {
     const search = skyConditions.find((s) => s.code === identifier);
     if (!search) return { code: identifier, meaning: "unknown" };
     return search;
