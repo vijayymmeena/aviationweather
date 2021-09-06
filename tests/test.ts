@@ -1,6 +1,7 @@
 import { Client } from "../src";
 
 const myc = new Client({ debug: true });
+
 myc
   .AW({
     datasource: "TAFS",

@@ -91,6 +91,21 @@ export class Client {
     return data;
   };
 
+  URI = {
+    AW: <T extends IOptions>(options: T): string => {
+      return axios.getUri({
+        url: Client.api.AW,
+        params: { ...options, requestType: "retrieve", format: "xml" },
+      });
+    },
+    AVT7: (AirportCode: string): string => {
+      return axios.getUri({
+        url: Client.api.AVT7,
+        params: { airport4Code: AirportCode },
+      });
+    },
+  };
+
   async AW<T extends IOptions>(
     options: T
   ): Promise<
