@@ -100,7 +100,7 @@ export interface IMetar {
    * See http://www.aviationweather.gov/metar/help?page=plot#fltcat
    * NOTE: cloud_base_ft_agl needs to be specified to output flight_category.
    */
-  flight_category: "VFR" | "MVFR" | "IFR" | "LIFR";
+  flight_category?: "VFR" | "MVFR" | "IFR" | "LIFR";
 
   /**
    * Pressure change in the past 3 hours (mb)
