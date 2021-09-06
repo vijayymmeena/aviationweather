@@ -4,7 +4,7 @@ const myc = new Client({ debug: true });
 myc
   .AW({
     datasource: "METARS",
-    stationString: "YMML",
+    stationString: "KBCB",
     hoursBeforeNow: 1,
   })
   .then((res) => {

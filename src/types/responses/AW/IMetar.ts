@@ -53,7 +53,7 @@ export interface IMetar {
   /**
    * Horizontal visibility (statute miles)
    */
-  visibility_statute_mi: number;
+  visibility_statute_mi?: number;
 
   /**
    * Altimeter (inches of Hg)
