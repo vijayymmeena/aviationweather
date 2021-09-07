@@ -109,7 +109,7 @@ export interface IAIREP {
   /**
    * Temperature (C)
    */
-  temp_c?: string;
+  temp_c?: number;
 
   /**
    * Wind direction-the direction from where the wind is blowing (degree)
@@ -134,5 +134,5 @@ export interface IAIREP {
   /**
    * Raw PIREP in text
    */
-  raw_text?: string;
+  raw_text: string;
 }
