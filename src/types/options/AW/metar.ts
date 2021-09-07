@@ -16,12 +16,12 @@ export interface IMetarOptions {
   /**
    * start and end times in seconds since January 1, 1970
    */
-  startTime?: number;
+  startTime?: Date | string | number;
 
   /**
    * start and end times in seconds since January 1, 1970
    */
-  endTime?: number;
+  endTime?: Date | string | number;
 
   /**
    * true - get the single most recent METAR (only one value is returned) for the specified time range

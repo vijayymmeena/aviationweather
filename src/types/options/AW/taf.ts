@@ -16,12 +16,12 @@ export interface ITafOptions {
   /**
    * start and end times in seconds since January 1, 1970
    */
-  startTime?: number;
+  startTime?: Date | string | number;
 
   /**
    * start and end times in seconds since January 1, 1970
    */
-  endTime?: number;
+  endTime?: Date | string | number;
 
   /**
    * timeType = issue or valid (default)

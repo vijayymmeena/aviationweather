@@ -11,12 +11,12 @@ export interface IGAirmetOptions {
   /**
    * start and end times in seconds since January 1, 1970
    */
-  startTime?: number;
+  startTime?: Date | string | number;
 
   /**
    * start and end times in seconds since January 1, 1970
    */
-  endTime?: number;
+  endTime?: Date | string | number;
 
   /**
    * true - get the single most recent aircraft report, only one result is returned
