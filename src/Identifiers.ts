@@ -9,4 +9,5 @@ export const skyConditions: IMetaSkyCondition[] = [
   { code: "SCT", description: "Scattered cloud layer 3/8ths to 4/8ths" },
   { code: "SKC", description: "Sky Clear" },
   { code: "TCU", description: "Towering Cumulus" },
+  { code: "NSC", description: "No Significant Cloud" },
 ];
