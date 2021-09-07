@@ -7,7 +7,7 @@ export interface IStation {
   /**
    * Four-letter WMO Id for the station, please refer to [global WMO country information](http://weather.unisys.com/info/country_info.html), for WMO codes
    */
-  wmo_id: string;
+  wmo_id?: string;
 
   /**
    * The latitude in decimal degrees
@@ -32,7 +32,7 @@ export interface IStation {
   /**
    * The two-letter abbreviation for the U.S. state or Canadian province
    */
-  state: string;
+  state?: string;
 
   /**
    * The two-letter country abbreviation

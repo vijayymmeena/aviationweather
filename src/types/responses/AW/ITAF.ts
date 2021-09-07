@@ -69,12 +69,12 @@ export interface Forecast {
   /**
    * Wind direction-the direction from where the wind is blowing (degree)
    */
-  wind_dir_degrees?: number;
+  wind_dir_degrees: number;
 
   /**
    * Wind speed (kt)
    */
-  wind_speed_kt?: number;
+  wind_speed_kt: number;
 
   /**
    * Wind gust (kt)

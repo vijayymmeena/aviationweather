@@ -61,30 +61,41 @@ export class Client {
   private FormatOutput = (type: IDatasourceType, data: any[]) => {
     switch (type) {
       case "METARS": {
-        return data.map((item) => {
-          if (item?.sky_condition && !(item?.sky_condition instanceof Array)) {
-            item.sky_condition = [item?.sky_condition];
+        return data.map((metar) => {
+          if (
+            metar?.sky_condition &&
+            !(metar?.sky_condition instanceof Array)
+          ) {
+            metar.sky_condition = [metar?.sky_condition];
           }
-          return item;
+          return metar;
         });
       }
 
       case "TAFS": {
-        return data.map((item) => {
-          if (item?.sky_condition && !(item?.sky_condition instanceof Array)) {
-            item.sky_condition = [item?.sky_condition];
+        return data.map((taf) => {
+          if (taf?.forecast && taf?.forecast instanceof Array) {
+            for (let index = 0; index < taf?.forecast.length; index++) {
+              const item = taf?.forecast[index];
+              if (
+                item?.sky_condition &&
+                !(item?.sky_condition instanceof Array)
+              ) {
+                item.sky_condition = [item?.sky_condition];
+              }
+            }
           }
-          return item;
+          return taf;
         });
       }
 
       case "STATIONS": {
-        return data.map((item) => {
+        return data.map((station) => {
           // combination of station type
-          if (item?.site_type) {
-            item.site_type = Object.keys(item.site_type);
+          if (station?.site_type) {
+            station.site_type = Object.keys(station.site_type);
           }
-          return item;
+          return station;
         });
       }
     }

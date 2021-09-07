@@ -9,7 +9,7 @@ myc
     hoursBeforeNow: 1,
   })
   .then((res) => {
-    console.log(res[0]);
+    console.log(res[0]?.forecast[1]?.sky_condition);
   });
 
 // myc.AVT7("ZJQH").then((res) => {
