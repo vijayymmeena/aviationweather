@@ -12,7 +12,7 @@ export interface IMetar {
   /**
    * Time( in ISO8601 date/time format) this METAR was observed.
    */
-  observation_time: Date;
+  observation_time: string;
 
   /**
    * The latitude (in decimal degrees )of the station that reported this METAR

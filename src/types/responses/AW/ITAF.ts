@@ -12,22 +12,22 @@ export interface ITaf {
   /**
    * Issue time (date and time the forecast was prepared) in ISO8601 date/time
    */
-  issue_time: Date;
+  issue_time: string;
 
   /**
    * Bulletin time (obtained from the WMO Header of the data) in ISO8601 date/time
    */
-  bulletin_time: Date;
+  bulletin_time: string;
 
   /**
    * The start time of when the report is valid (in ISO8601 date/time).
    */
-  valid_time_from: Date;
+  valid_time_from: string;
 
   /**
    * The end time for when the report is valid (in ISO8601 date/time).
    */
-  valid_time_to: Date;
+  valid_time_to: string;
 
   /**
    * Any remarks
@@ -59,12 +59,12 @@ export interface Forecast {
   /**
    * The start of the forecast time (ISO8601 date/time)
    */
-  fcst_time_from: Date;
+  fcst_time_from: string;
 
   /**
    * The end time of the forecast (ISO8601 date/time)
    */
-  fcst_time_to: Date;
+  fcst_time_to: string;
 
   /**
    * Wind direction-the direction from where the wind is blowing (degree)
