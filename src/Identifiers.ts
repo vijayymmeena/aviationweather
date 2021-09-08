@@ -11,4 +11,5 @@ export const skyConditions: IMetaSkyCondition[] = [
   { code: "SKC", description: "Sky Clear" },
   { code: "TCU", description: "Towering Cumulus" },
   { code: "NSC", description: "No Significant Cloud" },
+  { code: "CAVOK", description: "Cloud and Visibility OK" },
 ];
