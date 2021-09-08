@@ -16,3 +16,7 @@ Node.js engine for global aviation weather. Written with typescript.
 ### AVT7
 
 - METAR
+
+## Help or support
+
+Join [discord server](https://discord.gg/8HhJu7MejR)
