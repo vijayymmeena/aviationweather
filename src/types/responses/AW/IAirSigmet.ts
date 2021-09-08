@@ -14,15 +14,17 @@ export interface IAirSigmet {
    */
   valid_time_to: string;
 
-  /**
-   * Minimum altitude, in feet (MSL).
-   */
-  min_ft_msl: number;
+  altitude: {
+    /**
+     * Minimum altitude, in feet (MSL).
+     */
+    min_ft_msl: number;
 
-  /**
-   * Maximum altitude, in feet (MSL).
-   */
-  max_ft_msl: number;
+    /**
+     * Maximum altitude, in feet (MSL).
+     */
+    max_ft_msl: number;
+  };
 
   /**
    * Movement direction of the AIRSIGMET condition.
@@ -39,18 +41,26 @@ export interface IAirSigmet {
    * Hazard types can be one of the following: MTN OBSCN | IFR | TURB | ICE | CONVECTIVE | ASH
    * The severity is one of the following: NONE | LT-MOD | MOD | MOD-SEV | SEV
    */
-  hazard: string;
+  hazard: {
+    type: "MTN OBSCN" | "IFR" | "TURB" | "ICE" | "CONVECTIVE" | "ASH";
+    severity?: "NONE" | "LT-MOD" | "MOD" | "MOD-SEV";
+  };
 
   /**
    * The type of report: OUTLOOK, AIRMET or SIGMET
    */
-  airsigmet_type: string;
+  airsigmet_type: "OUTLOOK" | "AIRMET" | "SIGMET";
 
   /**
    * An array of points defining the polygon
    */
-  area: string;
+  area: {
+    num_points: number;
+    point: IPoint[];
+  };
+}
 
+interface IPoint {
   /**
    * Latitude of a point comprising the AIRSIGMET region
    */
