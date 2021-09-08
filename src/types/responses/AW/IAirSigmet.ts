@@ -14,7 +14,7 @@ export interface IAirSigmet {
    */
   valid_time_to: string;
 
-  altitude: {
+  altitude?: {
     /**
      * Minimum altitude, in feet (MSL).
      */
