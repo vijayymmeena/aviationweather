@@ -100,6 +100,11 @@ export interface IGAirMet {
     num_points: number;
     point: IPoint[];
   };
+
+  /**
+   * wx_details
+   */
+  wx_details?: string;
 }
 
 interface IPoint {
