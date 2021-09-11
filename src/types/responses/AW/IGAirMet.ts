@@ -2,22 +2,27 @@ export interface IGAirMet {
   /**
    * The time the GAIRMET was received
    */
-  receiptTime: string;
+  receipt_time: string;
 
   /**
    * The time when the report was issued
    */
-  issueTime: string;
+  issue_time: string;
 
   /**
    * The time when the report expires
    */
-  expireTime: string;
+  expire_time: string;
 
   /**
    * The product code. Must be one of: SIERRA | TANGO | ZULU
    */
   product: "SIERRA" | "TANGO" | "ZULU";
+
+  /**
+   * Roughly the number of hours between the issue time and the valid time
+   */
+  roughly_the_number_of_hours_between_the_issue_time_and_the_valid_time: number;
 
   /**
    * Tag identifying airmet sector
@@ -27,77 +32,84 @@ export interface IGAirMet {
   /**
    * T+ hour forecast is valid
    */
-  forecastHour: number;
+  forecast_hour?: number;
 
   /**
    * Time at which the report is valid
    */
-  validTime: string;
+  valid_time: string;
 
   /**
-   * The hazard type. Hazard types can be one of the following: IFR | MT_OBSC | TURB-HI | TURB-LO | ICE | FZLVL | M_FZLVL | SFC_WND | LLWS
+   * The hazard type and severity.
+   * Hazard types can be one of the following: MTN OBSCN | IFR | TURB | ICE | CONVECTIVE | ASH
+   * The severity is one of the following: NONE | LT-MOD | MOD | MOD-SEV | SEV
    */
-  hazard: string;
+  hazard: {
+    type: "MTN OBSCN" | "IFR" | "TURB" | "ICE" | "CONVECTIVE" | "ASH";
+    severity?: "NONE" | "LT-MOD" | "MOD" | "MOD-SEV";
+  };
 
   /**
    * The type of geometry associated with the report: AREA | LINE
    */
-  geometryType: string;
+  geometry_type: "AREA" | "LINE";
 
   /**
    * Frequency of occurrence
    */
-  frequency: string;
-
-  /**
-   * Severity of condition. NULL or one of: LGT | MOD | SVR
-   */
-  severity: string;
+  frequency?: string;
 
   /**
    * General description of why advisory was issue
    */
-  due_to: string;
+  due_to?: string;
 
   /**
    * Status of the report, such as normal, ammendment, etc
    */
-  status: string;
+  status?: string;
+
+  altitude?: {
+    /**
+     * Minimum altitude, in feet (MSL).
+     */
+    min_ft_msl: number;
+
+    /**
+     * Maximum altitude, in feet (MSL).
+     */
+    max_ft_msl: number;
+  };
+
+  fzl_altitude?: {
+    /**
+     * Minimum altitude, in feet (MSL).
+     */
+    min_ft_msl: number;
+
+    /**
+     * Maximum altitude, in feet (MSL).
+     */
+    max_ft_msl: number;
+  };
 
   /**
-   * Height of top of feature
+   * An array of points defining the polygon
    */
-  "altitude:max_ft_msl": number;
+  area: {
+    num_points: number;
+    point: IPoint[];
+  };
+}
+
+interface IPoint {
+  /**
+   * Latitude of a point comprising the AIRSIGMET region
+   */
+  latitude: number;
 
   /**
-   * Height of bottom of feature, 0 to indicate SFC, or -1 to indicate fzl_altitude is the bottom of the feature
+   * Longitude of a point comprising the AIRSIGMET region.
    */
-  "altitude:min_ft_msl": number;
-
-  /**
-   * Maximum altitude of the freezing level
-   */
-  "fzl_altitude:max_ft_msl": number;
-
-  /**
-   * Minimum altitude of the freezing level
-   */
-  "fzl_altitude:min_ft_msl": number;
-
-  /**
-   * Level of occurrence
-   */
-  level: number;
-
-  /**
-   * Number of lon/lat pairs delineating the feature
-   */
-  num_points: number;
-
-  /**
-   * An array of points defining the line or polygon
-   * Longitude of the delineating point
-   * Latitude of the delineating point
-   */
-  area: { longitude: number; latitude: number }[];
+  longitude: number;
 }

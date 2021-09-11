@@ -4,7 +4,7 @@ const myc = new Client({ debug: true });
 
 myc
   .AW({
-    datasource: "AIRSIGMETS",
+    datasource: "GAIRMETS",
     hoursBeforeNow: 1,
   })
   .then((res) => {
