@@ -34,7 +34,10 @@ export class Client {
 
   getSkyCondition(identifier: string): IMetaSkyCondition {
     const search = skyConditions.find((s) => s.code === identifier);
-    if (!search) return { code: identifier, description: "unknown" };
+    if (!search) {
+      return { code: identifier, description: "unknown" };
+    }
+
     return search;
   }
 
@@ -74,7 +77,10 @@ export class Client {
 
       case "TAFS": {
         return data.map((taf) => {
-          if (taf?.forecast && taf?.forecast instanceof Array) {
+          if (taf?.forecast) {
+            if (!(taf?.forecast instanceof Array)) {
+              taf.forecast = [taf?.forecast];
+            }
             for (let index = 0; index < taf?.forecast.length; index++) {
               const item = taf?.forecast[index];
               if (
@@ -155,7 +161,10 @@ export class Client {
     }
 
     // final output
-    if (!finalData) return [];
+    if (!finalData) {
+      return [];
+    }
+
     const output = finalData instanceof Array ? finalData : [finalData];
     return this.FormatOutput(options.datasource, output);
   }

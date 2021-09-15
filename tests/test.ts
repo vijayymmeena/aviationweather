@@ -4,11 +4,12 @@ const myc = new Client({ debug: true });
 
 myc
   .AW({
-    datasource: "GAIRMETS",
+    datasource: "TAFS",
+    stationString: "WSSS",
     hoursBeforeNow: 1,
   })
   .then((res) => {
-    console.log(res[0]);
+    console.log(res.length, res[0]);
   });
 
 // myc.AVT7("ZJQH").then((res) => {
