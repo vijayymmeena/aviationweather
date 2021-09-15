@@ -5,7 +5,7 @@ const myc = new Client({ debug: true });
 myc
   .AW({
     datasource: "TAFS",
-    stationString: "WSSS",
+    stationString: "egll",
     hoursBeforeNow: 1,
   })
   .then((res) => {

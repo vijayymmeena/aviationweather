@@ -124,7 +124,7 @@ export interface Forecast {
   /**
    * Sky condition
    */
-  sky_condition: {
+  sky_condition?: {
     /**
      * Sky coverage
      */
