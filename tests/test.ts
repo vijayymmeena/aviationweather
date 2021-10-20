@@ -1,15 +1,15 @@
 import { Client } from "../src";
 
-const myc = new Client({ debug: true });
+const myc = new Client({ debug: false });
 
 myc
   .AW({
-    datasource: "TAFS",
-    stationString: "egll",
-    hoursBeforeNow: 1,
+    datasource: "METARS",
+    stationString: "EGLC",
+    hoursBeforeNow: 2,
   })
   .then((res) => {
-    console.log(res.length, res[0]);
+    res.forEach((r) => console.log(r.sky_condition));
   });
 
 // myc.AVT7("ZJQH").then((res) => {

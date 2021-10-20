@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IAIREP,
   IAVT7Metar,
@@ -65,10 +66,10 @@ export class Client {
     switch (type) {
       case "METARS": {
         return data.map((metar) => {
-          if (
-            metar?.sky_condition &&
-            !(metar?.sky_condition instanceof Array)
-          ) {
+          // make sure sky_condition exist
+          if (!metar?.sky_condition) {
+            metar.sky_condition = [];
+          } else if (!(metar?.sky_condition instanceof Array)) {
             metar.sky_condition = [metar?.sky_condition];
           }
           return metar;
@@ -77,18 +78,20 @@ export class Client {
 
       case "TAFS": {
         return data.map((taf) => {
-          if (taf?.forecast) {
-            if (!(taf?.forecast instanceof Array)) {
-              taf.forecast = [taf?.forecast];
-            }
-            for (let index = 0; index < taf?.forecast.length; index++) {
-              const item = taf?.forecast[index];
-              if (
-                item?.sky_condition &&
-                !(item?.sky_condition instanceof Array)
-              ) {
-                item.sky_condition = [item?.sky_condition];
-              }
+          // make sure forecast exist
+          if (!taf?.forecast) {
+            taf.forecast = [];
+          } else if (!(taf?.forecast instanceof Array)) {
+            taf.forecast = [taf?.forecast];
+          }
+
+          // make sure sky_condition exist for each forecast
+          for (let index = 0; index < taf.forecast.length; index++) {
+            const item = taf.forecast[index];
+            if (!item?.sky_condition) {
+              item.sky_condition = [];
+            } else if (!(item?.sky_condition instanceof Array)) {
+              item.sky_condition = [item?.sky_condition];
             }
           }
           return taf;
@@ -140,7 +143,7 @@ export class Client {
       ? IStation[]
       : unknown
   > {
-    const res = await axios.get(Client.api.AW, {
+    const res = await axios.get<any, any>(Client.api.AW, {
       params: { ...options, requestType: "retrieve", format: "xml" },
     });
     if (this.options?.debug) {

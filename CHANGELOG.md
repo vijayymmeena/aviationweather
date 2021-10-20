@@ -19,24 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > `Security` - in case of vulnerabilities.
 
-## [1.1.2] - 2021-09-06
+## [1.4.0] - 2021-10-20
 
-### Changed
+### Fixed
 
-- marked visibility_statute_mi nullable
-
-## [1.1.1] - 2021-09-06
-
-### Changed
-
-- fixed response type for Metar.sky_condition
-
-### Added
-
-- AVT7 rest api wrapper
-
-## [1.0.0] - 2021-09-06
-
-### Added
-
-- AW rest api wrapper
+- sky_condition undefined
