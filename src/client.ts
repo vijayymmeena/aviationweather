@@ -17,10 +17,10 @@ import {
   IStationOptions,
   ITaf,
   ITafOptions,
-} from ".";
+} from "./index.js";
 import axios from "axios";
 import { parse } from "fast-xml-parser";
-import { skyConditions } from "./Identifiers";
+import { skyConditions } from "./Identifiers.js";
 
 export class Client {
   private options?: IClientOptions;

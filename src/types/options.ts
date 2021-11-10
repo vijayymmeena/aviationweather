@@ -1,9 +1,9 @@
-import { IAirSigmetOptions } from "./options/AW/airsigmet";
-import { IAircraftReportsOptions } from "./options/AW/aircraftreports";
-import { IGAirmetOptions } from "./options/AW/g-airmet";
-import { IMetarOptions } from "./options/AW/metar";
-import { IStationOptions } from "./options/AW/station";
-import { ITafOptions } from "./options/AW/taf";
+import { IAirSigmetOptions } from "./options/AW/airsigmet.js";
+import { IAircraftReportsOptions } from "./options/AW/aircraftreports.js";
+import { IGAirmetOptions } from "./options/AW/g-airmet.js";
+import { IMetarOptions } from "./options/AW/metar.js";
+import { IStationOptions } from "./options/AW/station.js";
+import { ITafOptions } from "./options/AW/taf.js";
 
 export {
   IAirSigmetOptions,

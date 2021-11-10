@@ -1,4 +1,4 @@
-import { Client } from "../src";
+import { Client } from "../src/index.js";
 
 const myc = new Client({ debug: false });
 

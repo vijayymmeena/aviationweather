@@ -1,1 +1,1 @@
-export * from "./Metar";
+export * from "./Metar.js";

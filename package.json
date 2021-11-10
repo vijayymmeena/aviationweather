@@ -2,10 +2,20 @@
   "name": "aviationweather",
   "version": "1.4.0",
   "description": "Node.js wrapper for aviation weather, written in TypeScript",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./build/esm/index.js",
+      "require": "./build/cjs/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc"
+    "build": "npm run build:esm && npm run build:cjs && npm run build:fixup",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --outDir build/cjs",
+    "build:fixup": "node --loader ts-node/esm scripts/fixup.mjs",
+    "type-check": "tsc --noemit"
   },
   "repository": {
     "type": "git",
@@ -30,6 +40,7 @@
     "@typescript-eslint/parser": "^5.1.0",
     "eslint": "^8.0.1",
     "prettier": "^2.4.1",
+    "shelljs": "^0.8.4",
     "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
   },

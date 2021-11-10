@@ -1,2 +1,2 @@
-export * from "./AW";
-export * from "./AVT7";
+export * from "./AW/index.js";
+export * from "./AVT7/index.js";
