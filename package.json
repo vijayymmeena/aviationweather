@@ -21,16 +21,8 @@
   "contributors": [
     "Harry <indianoceanroleplay@gmail.com> (https://github.com/oceanroleplay)"
   ],
-  "exports": {
-    ".": {
-      "import": "./build/esm/index.js",
-      "require": "./build/cjs/index.js",
-      "types": "./build/esm/index.d.ts"
-    }
-  },
-  "main": "build/cjs/index.js",
-  "module": "build/esm/index.js",
-  "types": "./build/esm/index.d.ts",
+  "main": "build/index.js",
+  "types": "./build/index.d.ts",
   "files": [
     "build",
     "LICENSE",
@@ -40,11 +32,8 @@
     "package.json"
   ],
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:cjs": "tsc --module CommonJs --outDir build/cjs && npm run postbuild:cjs",
-    "build:esm": "tsc && npm run postbuild:esm",
-    "postbuild:cjs": "node scripts/postbuild.mjs --module=cjs --path=build/cjs",
-    "postbuild:esm": "node scripts/postbuild.mjs --module=esm --path=build/esm",
+    "build": "tsc",
+    "build:changelog": "npx @discordx/changelog --repo=oceanroleplay/aviationweather --root=./src",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint ./",
