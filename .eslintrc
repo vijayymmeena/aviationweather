@@ -25,7 +25,7 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/semi": "warn",
     "@typescript-eslint/no-loss-of-precision": "warn",
-    "@typescript-eslint/quotes": "warn",
+    "@typescript-eslint/quotes": ["warn", "double", { "avoidEscape": true }],
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/no-inferrable-types": "warn",
