@@ -17,16 +17,20 @@
     "type": "git",
     "url": "git+https://github.com/oceanroleplay/aviationweather.git"
   },
-  "license": "MIT",
-  "author": "oceanroleplay <indianoceanroleplay@gmail.com>",
+  "license": "Apache-2.0",
+  "contributors": [
+    "Harry <indianoceanroleplay@gmail.com> (https://github.com/oceanroleplay)"
+  ],
   "exports": {
     ".": {
       "import": "./build/esm/index.js",
-      "require": "./build/cjs/index.js"
+      "require": "./build/cjs/index.js",
+      "types": "./build/esm/index.d.ts"
     }
   },
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
+  "types": "./build/esm/index.d.ts",
   "files": [
     "build",
     "LICENSE",
