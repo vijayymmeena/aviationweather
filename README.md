@@ -5,7 +5,7 @@ Node.js engine for global aviation weather. Written with typescript.
 # Examples
 
 ```ts
-import { Client } from "../src/index.js";
+import { Client } from "aviationweather";
 
 const client = new Client({ debug: false });
 
