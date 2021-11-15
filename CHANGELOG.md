@@ -1,4 +1,4 @@
-# Stage
+# [v2.0.0](https://github.com/oceanroleplay/aviationweather/releases/tag/v2.0.0) (2021-11-15)
 
 ## Features
 
