@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IAIREP,
   IAVT7Metar,
@@ -141,11 +140,12 @@ export class Client {
       ? IGAirMet[]
       : T extends IStationOptions
       ? IStation[]
-      : unknown
+      : never
   > {
-    const res = await axios.get<any, any>(Client.api.AW, {
+    const res = await axios.get(Client.api.AW, {
       params: { ...options, requestType: "retrieve", format: "xml" },
     });
+
     if (this.options?.debug) {
       console.log("API Response\n\n", res.data, "\n\n\n");
     }
@@ -165,11 +165,11 @@ export class Client {
 
     // final output
     if (!finalData) {
-      return [];
+      return [] as never;
     }
 
     const output = finalData instanceof Array ? finalData : [finalData];
-    return this.FormatOutput(options.datasource, output);
+    return this.FormatOutput(options.datasource, output) as never;
   }
 
   AVT7 = async (AirportCode: string): Promise<IAVT7Metar> => {
