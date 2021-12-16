@@ -41,4 +41,4 @@ client.AVT7("ZJQH").then((res) => {
 
 # Help or support
 
-Join [discord server](https://discord.gg/8HhJu7MejR)
+Join [discord server](https://discord.gg/yHQY9fexH9)
