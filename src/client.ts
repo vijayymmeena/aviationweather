@@ -18,8 +18,13 @@ import {
   ITafOptions,
 } from "./index.js";
 import axios from "axios";
-import { parse } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 import { skyConditions } from "./Identifiers.js";
+
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: "",
+});
 
 export class Client {
   private options?: IClientOptions;
@@ -151,10 +156,7 @@ export class Client {
     }
 
     // parse xml
-    const parsedData = parse(res.data, {
-      ignoreAttributes: false,
-      attributeNamePrefix: "",
-    });
+    const parsedData = parser.parse(res.data);
 
     const finalData =
       parsedData?.response?.data?.[this.selectField(options.datasource)];
