@@ -52,7 +52,7 @@
     "type-check": "tsc --noemit"
   },
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "fast-xml-parser": "^4.0.2",
     "tslib": "^2.3.1"
   },
