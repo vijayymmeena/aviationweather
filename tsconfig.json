@@ -9,8 +9,6 @@
     "noUncheckedIndexedAccess": true,
     "rootDir": "src",
     "outDir": "dist",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "declaration": true,
     "importHelpers": true,
     "forceConsistentCasingInFileNames": true,
