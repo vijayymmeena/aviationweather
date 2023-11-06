@@ -40,7 +40,6 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "check:lint": "eslint ./",
     "check:prettier": "prettier --check .",
-    "check:type": "tsc --noemit",
     "fix:prettier": "prettier --write ."
   },
   "dependencies": {
