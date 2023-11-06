@@ -33,5 +33,5 @@ jobs:
       - name: Run Prettier
         run: npm run check:prettier
 
-      - name: Run Type
+      - name: Run Build
         run: npm run build
