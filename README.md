@@ -5,39 +5,10 @@ Node.js engine for global aviation weather. Written with typescript.
 # Examples
 
 ```ts
-import { Client } from "aviationweather";
+import { getMetar } from "aviationweather";
 
-const client = new Client({ debug: false });
-
-client
-  .AW({
-    datasource: "METARS",
-    stationString: "KJFK",
-    hoursBeforeNow: 2,
-  })
-  .then((res) => {
-    res.forEach((r) => console.log(r));
-  });
-
-client.AVT7("ZJQH").then((res) => {
-  console.log(res);
-});
+getMetar({ ids: "KJFK", format: "json" }).then(({ data }) => console.log(data));
 ```
-
-# API Coverage
-
-## AVIATION WEATHER CENTER
-
-- METARs
-- Aircraft Reports
-- TAFs
-- AIR/SIGMETs
-- G-AIRMETs
-- STATION INFO
-
-## AVT7
-
-- METAR
 
 # Help or support
 

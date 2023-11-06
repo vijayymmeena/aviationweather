@@ -8,7 +8,7 @@
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
     "rootDir": "src",
-    "outDir": "build/esm",
+    "outDir": "dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,
@@ -16,5 +16,5 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "build", "examples", "tests", "scripts"]
+  "exclude": ["node_modules", "dist", "examples", "tests", "scripts"]
 }

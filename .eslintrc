@@ -1,6 +1,10 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "plugins": ["@typescript-eslint"],
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
@@ -16,7 +20,6 @@
     "require-await": "warn",
     "no-await-in-loop": "warn",
     "spaced-comment": "warn",
-    "sort-imports": "warn",
     "no-unused-vars": "off",
     "curly": "warn",
 

@@ -1,17 +1,15 @@
 name: Publish - Stable
 on:
   workflow_dispatch:
-  #release:
-  #  types: [created]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: 18
           registry-url: "https://registry.npmjs.org"
 
       - name: Install root dependencies
