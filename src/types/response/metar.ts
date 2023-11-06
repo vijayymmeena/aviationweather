@@ -1,3 +1,5 @@
+import { Cloud } from "../common/cloud.js";
+
 export interface MetarResponse {
   metar_id: number;
   icaoId: string;
@@ -9,7 +11,7 @@ export interface MetarResponse {
   wdir?: number;
   wspd?: number;
   wgst?: number;
-  visib?: number;
+  visib?: number | string;
   altim?: number;
   slp?: number;
   qcField: number;
@@ -34,9 +36,4 @@ export interface MetarResponse {
   prior: number;
   name: string;
   clouds: Cloud[];
-}
-
-export interface Cloud {
-  cover: string;
-  base?: number;
 }

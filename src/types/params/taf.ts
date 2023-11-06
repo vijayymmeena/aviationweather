@@ -1,4 +1,6 @@
 export interface TafParams {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
   ids: string;
   format?: "raw" | "json" | "geojson" | "xml" | "html";
   taf?: boolean;

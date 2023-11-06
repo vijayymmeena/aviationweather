@@ -1,3 +1,5 @@
+import { Station } from "../types/common/station";
+
 export default [
   {
     icaoId: "32012",
@@ -125917,4 +125919,4 @@ export default [
     country: "US",
     priority: 6,
   },
-];
+] as Station[];

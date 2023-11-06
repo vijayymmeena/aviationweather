@@ -1,3 +1,5 @@
+import { Cloud } from "../common/cloud.js";
+
 export interface TafResponse {
   tafId: number;
   icaoId: string;
@@ -30,7 +32,7 @@ export interface Fcst {
   wshearHgt?: number;
   wshearDir?: number;
   wshearSpd?: number;
-  visib: string;
+  visib?: number | string;
   altim?: number;
   vertVis?: number;
   wxString?: string;
@@ -38,10 +40,4 @@ export interface Fcst {
   clouds: Cloud[];
   icgTurb?: number[];
   temp?: number[];
-}
-
-export interface Cloud {
-  cover: string;
-  base: number;
-  type?: number;
 }

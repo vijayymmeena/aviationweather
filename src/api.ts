@@ -1,25 +1,29 @@
 import axios, { AxiosResponse } from "axios";
-import { TafParams } from "./types/params/taf.js";
-import { TafResponse } from "./types/response/taf.js";
-import { MetarResponse } from "./types/response/metar.js";
-import { MetarParams } from "./types/params/metar.js";
+import {
+  MetarParams,
+  MetarResponse,
+  TafParams,
+  TafResponse,
+} from "./types/index.js";
 
 export const api = axios.create({
   baseURL: "https://aviationweather.gov/cgi-bin/data",
 });
 
-export function getMetar(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getMetar<T = MetarResponse[]>(
   params: MetarParams,
-): Promise<AxiosResponse<MetarResponse[]>> {
-  return api.get<MetarResponse[]>("/metar.php", {
+): Promise<AxiosResponse<T>> {
+  return api.get<T>("/metar.php", {
     params,
   });
 }
 
-export function getTaf(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getTaf<T = TafResponse[]>(
   params: TafParams,
-): Promise<AxiosResponse<TafResponse[]>> {
-  return api.get<TafResponse[]>("/metar.php", {
+): Promise<AxiosResponse<T>> {
+  return api.get<T>("/taf.php", {
     params,
   });
 }
