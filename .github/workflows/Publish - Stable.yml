@@ -5,6 +5,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - name: check out code 🛎
         uses: actions/checkout@main
@@ -27,7 +30,13 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Publish
-        run: npm publish
+      - name: Run changeset
+        uses: changesets/action@main
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+        with:
+          commit: "chore: release packages"
+          publish: pnpm publish -r
+          title: "chore: release packages"
