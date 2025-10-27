@@ -12,4 +12,4 @@ getMetar({ ids: "KJFK", format: "json" }).then(({ data }) => console.log(data));
 
 # Help or support
 
-Join [discord server](https://discord.gg/xkP9paz5X3)
+Join [discordx server](https://discordx.js.org/discord)
