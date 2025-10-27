@@ -6,17 +6,26 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org"
+      - name: check out code 🛎
+        uses: actions/checkout@main
 
-      - name: Install root dependencies
-        run: npm ci
+      - name: Install pnpm
+        uses: pnpm/action-setup@master
+
+      - name: Install Node
+        uses: actions/setup-node@main
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run lint
+        run: pnpm run lint
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Publish
         run: npm publish

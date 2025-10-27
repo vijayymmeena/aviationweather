@@ -1,4 +1,4 @@
-import { IMetaSkyCondition } from "../types/common/sky.js";
+import type { IMetaSkyCondition } from "../types/common/sky.js";
 
 export const skyConditions: IMetaSkyCondition[] = [
   { code: "BKN", description: "Broken cloud" },

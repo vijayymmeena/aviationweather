@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from "axios";
-import {
+import axios, { type AxiosResponse } from "axios";
+import type {
   MetarParams,
   MetarResponse,
   TafParams,
@@ -7,23 +7,23 @@ import {
 } from "./types/index.js";
 
 export const api = axios.create({
-  baseURL: "https://aviationweather.gov/cgi-bin/data",
+  baseURL: "https://aviationweather.gov/api/data",
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getMetar<T = MetarResponse[]>(
-  params: MetarParams,
+  params: MetarParams
 ): Promise<AxiosResponse<T>> {
-  return api.get<T>("/metar.php", {
+  return api.get<T>("/metar", {
     params,
   });
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getTaf<T = TafResponse[]>(
-  params: TafParams,
+  params: TafParams
 ): Promise<AxiosResponse<T>> {
-  return api.get<T>("/taf.php", {
+  return api.get<T>("/taf", {
     params,
   });
 }

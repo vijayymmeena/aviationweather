@@ -1,4 +1,4 @@
-import { Cloud } from "../common/cloud.js";
+import type { Cloud } from "../common/cloud.js";
 
 export interface TafResponse {
   tafId: number;

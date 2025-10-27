@@ -1,5 +1,11 @@
 # aviationweather
 
+## 4.0.0
+
+### Major Changes
+
+- api update
+
 ## 3.0.4
 
 ### Major Changes

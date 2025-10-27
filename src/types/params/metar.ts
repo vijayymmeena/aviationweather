@@ -1,5 +1,5 @@
 export interface MetarParams {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: ignore
   [key: string]: any;
   ids: string;
   format?: "raw" | "json" | "geojson" | "xml" | "html";
