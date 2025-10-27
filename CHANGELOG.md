@@ -1,5 +1,11 @@
 # aviationweather
 
+## 4.0.1
+
+### Patch Changes
+
+- types
+
 ## 4.0.0
 
 ### Major Changes

@@ -37,7 +37,7 @@ export interface Fcst {
   vertVis?: number;
   wxString?: string;
   notDecoded?: number;
-  clouds: Cloud[];
+  clouds?: Cloud[];
   icgTurb?: number[];
   temp?: number[];
 }

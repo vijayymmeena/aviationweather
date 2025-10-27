@@ -35,5 +35,5 @@ export interface MetarResponse {
   elev: number;
   prior: number;
   name: string;
-  clouds: Cloud[];
+  clouds?: Cloud[];
 }
